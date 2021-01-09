@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Dashboard"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HealthAssistant.Views.DashboardPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ItemFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BackgroundColor" Value="#fafafa"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+            <Style x:Key="SubmenuLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="TextColor" Value="Red"/>
+            </Style>
+            <Style x:Key="ItemLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Blue"/>
+            </Style>
+            <Style x:Key="ItemSubLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="DarkGray"/>
+            </Style>
+            <Style x:Key="MicroLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="TextColor" Value="DarkGray"   />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="Seperator" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="Margin" Value="5,10,5,10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--  main content -->
+            <ScrollView AbsoluteLayout.LayoutFlags="All" VerticalScrollBarVisibility="Never"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- ................ All services collection view  .................. -->
+                    <StackLayout Grid.Row="0" Margin="20" >                        
+                        <StackLayout Orientation="Horizontal" HeightRequest="30" Margin="0,0,0,10">
+                                <Label Text="All Services" Style="{StaticResource SubmenuLabel}"/>
+                                <Label Text="View All" Style="{StaticResource MicroLabel}"/>
+                        </StackLayout>
+                        <Frame Style="{StaticResource ItemFrame}">
+                            <Label Text="Hello, John! We hope you are feeling great." FontSize="Large" TextColor="Black" Margin="5"/>
+                        </Frame>
+                    </StackLayout>
+
+                    <!-- ................ Upcoming appointments view  .................. -->                    
+                    <StackLayout Grid.Row="1"  Margin="20">
+                        <StackLayout Orientation="Horizontal" HeightRequest="30"  Margin="0,0,0,10">
+                            <Label Text="Upcoming Appointments" Style="{StaticResource SubmenuLabel}"/>
+                            <Label Text="View All" Style="{StaticResource MicroLabel}"/>
+                        </StackLayout>
+
+                        <ScrollView Orientation="Horizontal"
+                                    HorizontalScrollBarVisibility="Never">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+                                         HeightRequest="70">
+                                    <Frame Style="{StaticResource ItemFrame}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="dental.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout
+                                                         Grid.Column="1"
+                                                         HorizontalOptions="CenterAndExpand"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Dental Checkup" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="22.12.2020" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+
+                                    <StackLayout Style="{StaticResource Seperator}" WidthRequest="1"/>
+
+                                    <Frame Style="{StaticResource ItemFrame}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="eye1.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout 
+                                                         Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Eye Examination" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="30.11.2020" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+
+                                    <StackLayout Style="{StaticResource Seperator}" WidthRequest="1"/>
+
+                                    <Frame Style="{StaticResource ItemFrame}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="sleepstudy.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout 
+                                                         Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Sleep Study" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="25.11.2020" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Style="{StaticResource Seperator}" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                    
+
+                    <!-- ................ my active goals view  .................. -->
+                    <StackLayout Grid.Row="2" Margin="20">
+                        <StackLayout Orientation="Horizontal" HeightRequest="30" Margin="0,0,0,10">
+                            <Label Text="My Active Goals" Style="{StaticResource SubmenuLabel}"/>
+                            <Label Text="View All" Style="{StaticResource MicroLabel}"/>
+                        </StackLayout>
+
+                        <StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+                                         VerticalOptions="CenterAndExpand">
+                                <Grid VerticalOptions="CenterAndExpand"
+                                      HorizontalOptions="CenterAndExpand"
+                                      ColumnSpacing="20"
+                                      RowSpacing="20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Style="{StaticResource ItemFrame}"
+                                           Grid.Row="0"
+                                           Grid.Column="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="eye.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Daily Jogging" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="13 days streak!" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Style="{StaticResource ItemFrame}"
+                                           Grid.Row="0"
+                                           Grid.Column="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="eye.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Soft Exercise" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="17 days streak!" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Style="{StaticResource ItemFrame}"
+                                           Grid.Row="1"
+                                           Grid.Column="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="eye.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="Well-Hydration" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="23 days streak!" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame Style="{StaticResource ItemFrame}"
+                                           Grid.Row="1"
+                                           Grid.Column="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="eye.png" HeightRequest="40" WidthRequest="40"/>
+                                            <StackLayout Grid.Column="1"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center">
+                                                <Label Text="No Junk Food" Style="{StaticResource ItemLabel}"/>
+                                                <Label Text="21 days streak!" Style="{StaticResource ItemSubLabel}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+
+                            <StackLayout Style="{StaticResource Seperator}" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" 
+                                             Margin="5"
+                                             HeightRequest="60">
+                                <Image Source="eye.png" HeightRequest="40" WidthRequest="40"/>
+                                <StackLayout>
+                                    <Label Text="Awesome, Keep up the good work!" TextColor="Maroon" FontSize="Large"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthAssistant.Views.RegisterPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#bababa"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Grid.Row="1" BackgroundColor="White" Margin="20,20,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image Source="loginlogo.png" Grid.Row="0" HeightRequest="150" VerticalOptions="EndAndExpand"/>
+        <Entry x:Name="Entry_Email" Grid.Row="1" Placeholder="Email" Keyboard="Email" MaxLength="128"/>
+        <Entry x:Name="Entry_Password" Grid.Row="2" Placeholder="Password" IsPassword="True" MaxLength="32"/>
+        <Entry x:Name="Entry_DOB" Grid.Row="3" Placeholder="Date of Birth" MaxLength="10"/>
+        <Entry x:Name="Entry_Weight" Grid.Row="4" Placeholder="Weight" Keyboard="Numeric" MaxLength="3"/>
+        <Entry x:Name="Entry_Height" Grid.Row="5" Placeholder="Height" Keyboard="Numeric" MaxLength="3"/>
+        <Button Text="Register" 
+                Grid.Row="6"    
+                BackgroundColor="#3897f0"
+                BorderRadius="20"
+                TextColor="White" 
+                HeightRequest="50" 
+                VerticalOptions="Start" 
+                x:Name="btnRegister"
+                Clicked="btnRegister_Clicked"/>
+    </Grid>
+</ContentPage>

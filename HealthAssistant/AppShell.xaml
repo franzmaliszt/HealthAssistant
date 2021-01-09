@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell  Title="Health Assistant" 
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:HealthAssistant.Views"
+        mc:Ignorable="d"
+        Shell.ItemTemplate="{StaticResource MenuTemplate}"
+        Shell.MenuItemTemplate="{StaticResource MenuTemplate}"
+        Shell.FlyoutHeaderTemplate="{StaticResource FlyoutHeaderTemplate}"
+        x:Class="HealthAssistant.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">Orange</Color>
+            <Color x:Key="BackgroundColor">#ef77b1</Color>
+            <Color x:Key="NavigationPrimary">#FFFFFF</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Red"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="#AD6237" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.UnselectedColor" Value="RED" />
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+            <DataTemplate x:Key="MenuTemplate">
+                <StackLayout Orientation="Horizontal">
+                    <Image Margin="30,10,20,10" Source="pulse.png" WidthRequest="22" HeightRequest="22" HorizontalOptions="Center"/>
+                    <Label Text="{Binding Title}" TextColor="#686868" FontSize="16" VerticalOptions="Center"/>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="FlyoutHeaderTemplate">
+                <ContentView BackgroundColor="{StaticResource ThemeColor}" HeightRequest="245">
+                    <Image Source="flyoutheader.png" HeightRequest="245"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    <FlyoutItem Title="Home">
+        <Tab Title="Dashboard" Icon="inbox.png">
+            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}" />
+        </Tab>
+        <Tab Title="Search" Icon="loupe.png">
+            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
+        </Tab>
+        <Tab Title="Assistant" Icon="information.png">
+            <ShellContent ContentTemplate="{DataTemplate views:AssistantPage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+        </Tab>
+    </FlyoutItem>
+    <MenuItem Text="Schedule" Command="{Binding NavigateCommand}" CommandParameter="schedule" IconImageSource="checked.png" />
+    <MenuItem Text="Articles" Command="{Binding NavigateCommand}" CommandParameter="articles" IconImageSource="file.png" />
+    <MenuItem Text="Projects" Command="{Binding NavigateCommand}" CommandParameter="projects" IconImageSource="heart.png" />
+    <MenuItem Text="Settings" Command="{Binding SettingsCommand}" CommandParameter="settings" IconImageSource="settings.png" />
+</Shell>
